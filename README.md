@@ -1,7 +1,6 @@
 # Knuth-Schätzer – wenn Zählen zu schwer ist, schätzen – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-knuth-schaetzer-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-knuth-schaetzer-demo.streamlit.app/)**
 
 Stück 15 von 16 der Reihe **„Abzählen und erzeugende Funktionen“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (die Linie wird erst vollständig veröffentlicht; Stück 15 war als gelb markiert und wurde nach Stück 14 zum Bauen entschieden). Vorgänger sind `aufzaehlen-rekursion-demo` (Stück 1), `rationale-ef-demo` (Stück 2), `symbolische-methode-demo` (Stück 3), `semiring-rekursion-demo` (Stück 4), `multimengen-partitionen-demo` (Stück 5), `beschriftete-strukturen-demo` (Stück 6), `siebformel-demo` (Stück 7), `zaehlen-nach-parameter-demo` (Stück 8), `asymptotik-demo` (Stück 9), `gleichverteilt-ziehen-demo` (Stück 10), `burnside-polya-demo` (Stück 11), `isomorphieausschluss-demo` (Stück 12), `frontier-diagramm-demo` (Stück 13) und `tutte-polynom-demo` (Stück 14); die letzten haben **exakt gezählt**. Diese Demo **schätzt**, wenn das nicht mehr zu bezahlen ist: ein **Zufallsabstieg** durch den Suchbaum (eine **Sondierung**) multipliziert die Zahl der Wahlmöglichkeiten, und das Gewicht hat als Erwartung genau die gesuchte Zahl (**Knuth 1975** für die Größe eines Suchbaums, **Rosenbluth und Rosenbluth 1955** für selbstvermeidende Wege). Wie genau das Mittel ist, sagt der **Variationskoeffizient** des Gewichts; das Diagramm aus Stück 13 liefert die **Wahrheit**, an der man den Schätzer prüft.
 
@@ -126,4 +125,4 @@ Gebaut mit Streamlit, Plotly, fpdf2 und NumPy.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Abzählen: von der Rekursion zur Verfahrenswahl](https://sebastianhanisch.net/konzepte-abzaehlen.html).
