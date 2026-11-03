@@ -63,12 +63,12 @@ def test_ways_table_of_the_standard_case():
 def test_error_verdict_exact():
     assert ev.verdict_error(ev.error_rows()) == ("success",
         "Der Schätzer ist unverzerrt, sein Fehler fällt wie 1/√N: die Steigung des Medianfehlers im doppeltlogarithmischen Bild ist −0,45 (n = 8) und −0,48 (n = 10). "
-        "Beim Suchbaum der zehn Damen (35.539 Knoten, Variationskoeffizient 0,65) liegt das Mittel aus 3.000 Sondierungen im Median 1,1 % daneben, im 95-Prozent-Quantil 2,2 %.")
+        "Beim Suchbaum der zehn Damen (35.539 Knoten, Variationskoeffizient 0,65) liegt das Mittel aus 3.000 Sondierungen im Median 1,1 % daneben, im 95-Prozent-Quantil 2,2 % (aus 10 Blöcken, also ungefähr).")
 
 
 def test_paths_verdict_exact():
     assert ev.verdict_paths(ev.path_rows()) == ("success",
-        "Der Schätzer trifft die exakten Zahlen aus Stück 13 mit 600 Sondierungen je Gitter ungefähr: von 7 Gittern liegt die Wahrheit in 5 im 95-Prozent-Intervall; das Intervall verfehlt die Wahrheit bei n = 8, 10 (schwere Ausläufer der Gewichte: wenige seltene, sehr große tragen das Mittel). "
+        "Der Schätzer trifft die exakten Zahlen aus Stück 13 mit 600 Sondierungen je Gitter ungefähr: von 7 Gittern liegt die Wahrheit in 5 im 95-Prozent-Intervall; das Intervall verfehlt die Wahrheit in dieser Messung bei n = 8, 10 (mögliche Ursache: schwere Ausläufer der Gewichte, bei denen wenige seltene, sehr große das Mittel tragen). "
         "Beim 10×10-Gitter (4,10·10¹⁹ Wege) beträgt das Verhältnis Schätzung zu Wahrheit 0,606. Der Variationskoeffizient wächst von 0,70 (n = 4) auf 5,36 (n = 10); für 5 Prozent Standardfehler braucht man dann 11.505 statt 198 Sondierungen.")
 
 
@@ -87,7 +87,7 @@ def test_knapsack_verdict_exact():
 def test_better_verdict_exact():
     assert ev.verdict_better(ev.better_rows()) == ("success",
         "Chens Schichtung senkt die Streuung je Sondierung (n = 10: Variationskoeffizient 0,37 gegen 0,67), kostet aber 72 statt 8,8 Kinderlisten je Sondierung; bei gleichem Aufwand ist Knuth mit 8 Sondierungen bei 3 von 3 Bäumen besser (n = 10: 0,25). "
-        "Beim Hashing auf den 6.728 Parkettierungen des 6×6-Bretts ist das Mittel der Schätzung 2^m · Zelle unverzerrt, und ihr Variationskoeffizient folgt 1/√Zellgröße: bei m = 8 (Zelle im Mittel 26,3) 0,199 gegen 0,195. "
+        "Beim Hashing auf den 6.728 Parkettierungen des 6×6-Bretts ist das Mittel der Schätzung 2^m · Zelle unverzerrt, und ihr Variationskoeffizient folgt 1/√Zellgröße (bei kleinen m liegt er darunter): bei m = 8 (Zelle im Mittel 26,3) 0,199 gegen 0,195. "
         "Das Orakel zählt dabei alle Lösungen auf; der Nutzen des Hashings liegt dort, wo ein Löser die Zelle ohne Aufzählen findet.")
 
 

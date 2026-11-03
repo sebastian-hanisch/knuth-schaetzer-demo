@@ -278,7 +278,7 @@ def verdict_error(res: dict):
     last = r10["Reihe"][-1]
     ok = all(-0.7 < r["Steigung"] < -0.3 for r in res.values())
     return ("success" if ok else "error"), (f"Der Schätzer ist unverzerrt, sein Fehler fällt wie 1/√N: die Steigung des Medianfehlers im doppeltlogarithmischen Bild ist {de(res[8]['Steigung'], 2)} (n = 8) und {de(r10['Steigung'], 2)} (n = 10). "
-                                            f"Beim Suchbaum der zehn Damen ({big_text(r10['exakt'])} Knoten, Variationskoeffizient {de(r10['cv'], 2)}) liegt das Mittel aus {big_text(last['N'])} Sondierungen im Median {pct_text(last['Median'])} daneben, im 95-Prozent-Quantil {pct_text(last['Quantil95'])}.")
+                                            f"Beim Suchbaum der zehn Damen ({big_text(r10['exakt'])} Knoten, Variationskoeffizient {de(r10['cv'], 2)}) liegt das Mittel aus {big_text(last['N'])} Sondierungen im Median {pct_text(last['Median'])} daneben, im 95-Prozent-Quantil {pct_text(last['Quantil95'])} (aus {big_text(last['Blöcke'])} Blöcken, also ungefähr).")
 
 
 # ----------------------------------------------------------------------------- Experiment 2: Wege gegen die Wahrheit aus Stück 13
@@ -301,7 +301,7 @@ def verdict_paths(rows: list):
     inside = sum(r["im Intervall"] for r in rows)
     outside = [r["n"] for r in rows if not r["im Intervall"]]
     ok = all(0.25 < r["Verhältnis"] < 4 for r in rows)
-    tail = f"; das Intervall verfehlt die Wahrheit bei n = {', '.join(str(n) for n in outside)} (schwere Ausläufer der Gewichte: wenige seltene, sehr große tragen das Mittel)" if outside else ""
+    tail = f"; das Intervall verfehlt die Wahrheit in dieser Messung bei n = {', '.join(str(n) for n in outside)} (mögliche Ursache: schwere Ausläufer der Gewichte, bei denen wenige seltene, sehr große das Mittel tragen)" if outside else ""
     return ("success" if ok else "error"), (f"Der Schätzer trifft die exakten Zahlen aus Stück 13 mit {big_text(C.EXP_PATH_PROBES)} Sondierungen je Gitter ungefähr: von {len(rows)} Gittern liegt die Wahrheit in {inside} im 95-Prozent-Intervall{tail}. "
                                             f"Beim {last['n']}×{last['n']}-Gitter ({num_text(last['Wahrheit'])} Wege) beträgt das Verhältnis Schätzung zu Wahrheit {de(last['Verhältnis'], 3)}. "
                                             f"Der Variationskoeffizient wächst von {de(rows[0]['cv'], 2)} (n = {rows[0]['n']}) auf {de(last['cv'], 2)} (n = {last['n']}); für 5 Prozent Standardfehler braucht man dann {big_text(last['nötig'])} statt {big_text(rows[0]['nötig'])} Sondierungen.")
@@ -404,7 +404,7 @@ def verdict_better(res: dict):
     last = h[-1]
     return "success", (f"Chens Schichtung senkt die Streuung je Sondierung (n = 10: Variationskoeffizient {de(c10['Chen cv'], 2)} gegen {de(c10['Knuth cv'], 2)}), kostet aber {de(c10['Chen Kosten'], 0)} statt {de(c10['Knuth Kosten'], 1)} Kinderlisten je Sondierung; "
                        f"bei gleichem Aufwand ist Knuth mit {c10['k']} Sondierungen bei {worse} von {len(res['chen'])} Bäumen besser (n = 10: {de(c10['Knuth gleicher Aufwand cv'], 2)}). "
-                       f"Beim Hashing auf den {big_text(res['Parkettierungen'])} Parkettierungen des {res['Brett']}-Bretts ist das Mittel der Schätzung 2^m · Zelle unverzerrt, und ihr Variationskoeffizient folgt 1/√Zellgröße: bei m = {last['m']} (Zelle im Mittel {de(last['Zelle'], 1)}) {de(last['cv'], 3)} gegen {de(last['1/Wurzel'], 3)}. "
+                       f"Beim Hashing auf den {big_text(res['Parkettierungen'])} Parkettierungen des {res['Brett']}-Bretts ist das Mittel der Schätzung 2^m · Zelle unverzerrt, und ihr Variationskoeffizient folgt 1/√Zellgröße (bei kleinen m liegt er darunter): bei m = {last['m']} (Zelle im Mittel {de(last['Zelle'], 1)}) {de(last['cv'], 3)} gegen {de(last['1/Wurzel'], 3)}. "
                        "Das Orakel zählt dabei alle Lösungen auf; der Nutzen des Hashings liegt dort, wo ein Löser die Zelle ohne Aufzählen findet.")
 
 

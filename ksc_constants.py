@@ -49,10 +49,10 @@ PRESETS = {
     "N-Damen n = 10 mit Chens Schichtung": {"task": "N-Damen-Suchbaum", "n": 10, "probes": 1000, "method": "Chen-Schichtung", "seed": 7},
 }
 PRESET_HELP = {
-    "Standardfall: N-Damen n = 10": "Der Suchbaum der zehn Damen hat 35.539 Knoten; 10.000 Zufallsabstiege schätzen ihn auf weniger als 1 Prozent genau, der Variationskoeffizient einer Sondierung ist 0,65; für 5 Prozent Standardfehler reichten schon 171.",
-    "Wege im 8×8-Gitter mit Erreichbarkeitsprüfung": "789.360.053.252 einfache Wege (Stück 13): 1.000 Sondierungen mit Vorausschau schätzen sie auf rund 10 Prozent genau; jede Sondierung erreicht das Ziel.",
+    "Standardfall: N-Damen n = 10": "Der Suchbaum der zehn Damen hat 35.539 Knoten; 10.000 Zufallsabstiege schätzen ihn meist auf weniger als 1 Prozent genau (Seed 7: 0,7 Prozent), der Variationskoeffizient einer Sondierung ist 0,65; für 5 Prozent Standardfehler reichten schon 171.",
+    "Wege im 8×8-Gitter mit Erreichbarkeitsprüfung": "789.360.053.252 einfache Wege (Stück 13): 1.000 Sondierungen mit Vorausschau liegen typisch um 10 Prozent daneben (Seed 7: 9,5 Prozent; je nach Seed 1 bis 19 Prozent); jede Sondierung erreicht das Ziel.",
     "Wege im 8×8-Gitter ohne Prüfung": "Ohne Vorausschau enden etwa vier von fünf Sondierungen in einer Sackgasse (Gewicht 0), der Variationskoeffizient ist knapp fünfmal so groß wie mit Prüfung.",
-    "Wege im 10×10-Gitter: 4,1·10¹⁹": "41.044.208.702.632.496.804 Wege (Stück 13): der Schätzer kommt mit 1.000 Sondierungen auf etwa 15 Prozent heran; ein Aufzählen aller Wege wäre unmöglich.",
-    "Rucksack-Baum n = 24: der schwierige Fall": "Der Branch-and-Bound-Baum hat nur 7.496 Knoten (von 33.554.431 im vollen Baum), aber sehr ungleich verteilt: der Variationskoeffizient ist 25, und auch 10.000 Sondierungen liegen noch weit daneben, mehr Aufwand als das Aufzählen.",
+    "Wege im 10×10-Gitter: 4,1·10¹⁹": "41.044.208.702.632.496.804 Wege (Stück 13): der Schätzer liegt mit 1.000 Sondierungen typisch um 15 Prozent daneben (Seed 7: 14,3 Prozent; je nach Seed 3 bis 45 Prozent); ein Aufzählen aller Wege wäre unmöglich.",
+    "Rucksack-Baum n = 24: der schwierige Fall": "Der Branch-and-Bound-Baum hat nur 7.496 Knoten (von 33.554.431 im vollen Baum), aber sehr ungleich verteilt: der Variationskoeffizient ist bei dieser Instanz (Seed 3) 25, und auch 10.000 Sondierungen liegen noch weit daneben, mehr Aufwand als das Aufzählen.",
     "N-Damen n = 10 mit Chens Schichtung": "Chens Verfahren behält je Ebene und Typ einen Vertreter: kleinere Streuung je Sondierung, aber mehr Aufwand je Sondierung.",
 }

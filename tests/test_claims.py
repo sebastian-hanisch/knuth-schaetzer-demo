@@ -110,11 +110,11 @@ def test_preset_help_numbers_match_the_computation():
     std = ev.analyse(S(**C.PRESETS["Standardfall: N-Damen n = 10"]))
     assert all(x in h["Standardfall: N-Damen n = 10"] for x in ("35.539", "weniger als 1 Prozent", "0,65", "171")) and std.exact == 35539 and f(std.cv, 2) == "0.65" and std.rel_error < 0.01 and std.probes_needed == 171
     pc = ev.analyse(S(**C.PRESETS["Wege im 8×8-Gitter mit Erreichbarkeitsprüfung"]))
-    assert all(x in h["Wege im 8×8-Gitter mit Erreichbarkeitsprüfung"] for x in ("789.360.053.252", "1.000", "rund 10 Prozent")) and 0.05 < pc.rel_error < 0.15 and pc.success_rate == 1.0
+    assert all(x in h["Wege im 8×8-Gitter mit Erreichbarkeitsprüfung"] for x in ("789.360.053.252", "1.000", "typisch um 10 Prozent")) and 0.05 < pc.rel_error < 0.15 and pc.success_rate == 1.0
     pn = ev.analyse(S(**C.PRESETS["Wege im 8×8-Gitter ohne Prüfung"]))
     assert "etwa vier von fünf" in h["Wege im 8×8-Gitter ohne Prüfung"] and 0.78 < 1 - pn.success_rate < 0.82 and 4.5 < pn.cv / pc.cv < 5.0
     p10 = ev.analyse(S(**C.PRESETS["Wege im 10×10-Gitter: 4,1·10¹⁹"]))
-    assert all(x in h["Wege im 10×10-Gitter: 4,1·10¹⁹"] for x in ("41.044.208.702.632.496.804", "etwa 15 Prozent")) and 0.10 < p10.rel_error < 0.20
+    assert all(x in h["Wege im 10×10-Gitter: 4,1·10¹⁹"] for x in ("41.044.208.702.632.496.804", "typisch um 15 Prozent")) and 0.10 < p10.rel_error < 0.20
     kn = ev.analyse(S(**C.PRESETS["Rucksack-Baum n = 24: der schwierige Fall"]))
     assert all(x in h["Rucksack-Baum n = 24: der schwierige Fall"] for x in ("7.496", "33.554.431", "25")) and kn.exact == 7496 and 2 ** 25 - 1 == 33554431 and round(kn.cv) == 23 and kn.cost_needed > kn.exact * 100
     ch = ev.analyse(S(**C.PRESETS["N-Damen n = 10 mit Chens Schichtung"]))

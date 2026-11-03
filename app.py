@@ -233,8 +233,8 @@ st.markdown(
     f"""
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
-| **Der Baum ist ausgeglichen** | Der Variationskoeffizient wird riesig: der Rucksack-Baum mit 24 Gegenständen hat einen von 25 und liegt nach tausenden Sondierungen noch weit daneben. Die Erwartung stimmt trotzdem, aber das Mittel konvergiert nicht in brauchbarer Zeit. | Experiment 4 |
-| **Die Streuung ist endlich und die Normalnäherung gilt** | Die 95-Prozent-Intervalle beruhen auf der Normalnäherung des Mittels. Bei schweren Ausläufern der Gewichte (Wege im Gitter ab n = 8 mit wenigen Sondierungen) verfehlt das Intervall die Wahrheit öfter als in 5 von 100 Fällen. | Experiment 2 und 3 |
+| **Der Baum ist ausgeglichen** | Der Variationskoeffizient wird riesig: der Rucksack-Baum mit 24 Gegenständen (voreingestellte Instanz) hat einen von 25 und liegt nach tausenden Sondierungen noch weit daneben. Die Erwartung stimmt trotzdem, aber das Mittel konvergiert nicht in brauchbarer Zeit. | Experiment 4 |
+| **Die Streuung ist endlich und die Normalnäherung gilt** | Die 95-Prozent-Intervalle beruhen auf der Normalnäherung des Mittels. Bei schweren Ausläufern der Gewichte (Wege im Gitter ab n = 9 oder 10 mit 600 Sondierungen) verfehlt das Intervall die Wahrheit öfter als in 5 von 100 Fällen. | Experiment 2 und 3 |
 | **Schätzen ist billiger als Zählen** | Bei kleinen Bäumen kostet das Schätzen mehr als das Aufzählen: beim 35.539-Knoten-Baum der zehn Damen lohnt es sich (Faktor 24 bei 5 Prozent Standardfehler), beim Rucksack-Baum mit 7.496 Knoten nicht. | Ergebnis |
 | **Die Wahrheit ist bekannt** | Hier gibt es sie (Tiefensuche, Stück 13), bei echten Aufgaben nicht: dann bleibt nur die geschätzte Streuung der Gewichte, und die ist bei schweren Ausläufern selbst unsicher. | Experiment 2 |
 | **Der Baum ist fest** | Der Schätzer gilt für einen festen Baum: der Branch-and-Bound-Baum hier hat einen **festen** Zielwert (das Optimum). Der echte Baum eines Lösers ändert sich mit der besten bekannten Lösung. | Experiment 4 |
@@ -257,7 +257,7 @@ Ein Knoten $u$ in Tiefe $j$ wird mit Wahrscheinlichkeit $1 / w(u)$ besucht, wobe
 
 **Genauigkeit.** Aus $N$ unabhängigen Sondierungen ist das Mittel $\bar{W}$ unverzerrt mit Standardfehler $\sigma / \sqrt{N}$; der Variationskoeffizient $\mathrm{cv} = \sigma / \mu$ gibt die nötige Zahl $N \ge \mathrm{cv}^2 / \varepsilon^2$ für einen relativen Standardfehler $\varepsilon$. Das 95-Prozent-Intervall $\bar{W} \pm 1{,}96\, s / \sqrt{N}$ beruht auf der Normalnäherung und kann bei schweren Ausläufern der Gewichte die Wahrheit zu oft verfehlen.
 
-**Chen.** Je Ebene bleibt je Typ $(\text{Tiefe}, \text{Kinderzahl})$ ein zufälliger Vertreter, der die Summe der Gewichte seiner Typgenossen trägt; die Schätzung bleibt unverzerrt, die Streuung ist kleiner.
+**Chen.** Je Ebene bleibt je Typ $(\text{Tiefe}, \text{Kinderzahl})$ ein zufälliger Vertreter, der die Summe der Gewichte seiner Typgenossen trägt; die Schätzung bleibt unverzerrt; die Streuung je Sondierung ist kleiner, der Aufwand je Sondierung aber viel größer.
 
 **Hashing.** Wählt man $m$ zufällige Paritätsbedingungen (jede ein XOR über eine zufällige Teilmenge der Variablen mit zufälligem Paritätsbit), enthält die Zelle der Lösungen $S$, die alle erfüllen, im Mittel $|S| / 2^m$ Lösungen; $2^m \cdot |\text{Zelle}|$ ist unverzerrt, und sein Variationskoeffizient liegt bei etwa $1 / \sqrt{|\text{Zelle}|}$.
 
